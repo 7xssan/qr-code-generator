@@ -1,0 +1,12 @@
+import qrcode
+
+qr = qrcode.QRCode(
+    version = 15, # version of qr code module
+    box_size = 10, # size of box in which qr code will be placed
+    border = 5 # border is the quiet zone around qrcode
+)
+
+qr.add_data("https://www.youtube.com/watch?v=O91DT1pR1ew&ab_channel=CB2C")
+qr.make(fit=True)
+image = qr.make_image(fill="black", back_color="white")
+image.save("qr.png")
